@@ -76,6 +76,8 @@ The final query returns the following fields:
 ## Graphical Representation: Average Height by Operator with Alert included
 ![image](https://github.com/user-attachments/assets/128229b8-3d70-4feb-a75e-6896dd15b033)
 
+![image](https://github.com/user-attachments/assets/68cf8159-df3b-4bd9-b297-74134c77874c)
+
 
 ### Conclusion
 
