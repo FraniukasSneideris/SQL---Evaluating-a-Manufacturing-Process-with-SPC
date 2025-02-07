@@ -32,7 +32,7 @@ Where:
 - `avg_height` is the average height of the last 5 parts for each operator.
 - `stddev_height` is the standard deviation of the heights for the last 5 parts.
 
-### SQL Query to Calculate Control Limits
+### SQL Query 
 
 The SQL query calculates the control limits and flags whether the height of each part is within the acceptable range:
 
