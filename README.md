@@ -23,14 +23,17 @@ The project analyzes data from the `manufacturing_parts` table, which contains t
 
 ## Approach
 
-The objective is to calculate the UCL and LCL for each operator, using the following formulas:
+The primary goal is to determine whether each part produced by an operator falls within acceptable height limits by calculating control limits:
 
-- **UCL = avg_height + 3 * stddev_height / sqrt(5)**
-- **LCL = avg_height - 3 * stddev_height / sqrt(5)**
+- **Upper Control Limit (UCL)**: \( \text{avg\_height} + \frac{3 \times \text{stddev\_height}}{\sqrt{5}} \)  
+- **Lower Control Limit (LCL)**: \( \text{avg\_height} - \frac{3 \times \text{stddev\_height}}{\sqrt{5}} \)  
 
-Where:
-- `avg_height` is the average height of the last 5 parts for each operator.
-- `stddev_height` is the standard deviation of the heights for the last 5 parts.
+Where:  
+- `avg_height` is the average height of the last 5 parts for each operator.  
+- `stddev_height` is the standard deviation of the heights for the same last 5 parts.  
+
+The logic evaluates whether each part height falls outside these control limits. If the height exceeds the UCL or is below the LCL, an alert is generated. A **False** alert indicates the part is within limits, which is favorable since it confirms compliance with control boundaries. Conversely, a **True** alert signals a potential issue with the part's height.
+
 
 ### SQL Query 
 
@@ -69,7 +72,7 @@ The final query returns the following fields:
 - **stddev_height**: The standard deviation of the heights for the last 5 parts.
 - **ucl**: The upper control limit for the part height.
 - **lcl**: The lower control limit for the part height.
-- **alert**: A boolean flag indicating whether the height of the part is outside the control limits.
+- **alert**: A boolean flag indicating whether the height of the part is outside the control limits, ideally the alert should be FALSE, indicating that the part is within limits.
 
 ### Results
 
