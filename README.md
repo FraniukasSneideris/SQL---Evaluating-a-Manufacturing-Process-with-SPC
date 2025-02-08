@@ -25,8 +25,8 @@ The project analyzes data from the `manufacturing_parts` table, which contains t
 
 The primary goal is to determine whether each part produced by an operator falls within acceptable height limits by calculating control limits:
 
-- **Upper Control Limit (UCL)**: \( \text{avg\_height} + \frac{3 \times \text{stddev\_height}}{\sqrt{5}} \)  
-- **Lower Control Limit (LCL)**: \( \text{avg\_height} - \frac{3 \times \text{stddev\_height}}{\sqrt{5}} \)  
+- **UCL = avg_height + 3 * stddev_height / sqrt(5)**
+- **LCL = avg_height - 3 * stddev_height / sqrt(5)**
 
 Where:  
 - `avg_height` is the average height of the last 5 parts for each operator.  
